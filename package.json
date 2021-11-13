@@ -10,6 +10,7 @@
   "author": "Gunawan Nur Ahmad",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.8.0",
     "dotenv": "^10.0.0",
     "node-cron": "^3.0.0",
     "twit": "^2.2.11"

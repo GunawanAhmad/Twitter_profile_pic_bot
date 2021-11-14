@@ -34,7 +34,7 @@ function createImage() {
     "November",
     "December",
   ];
-  let date = new Date();
+  let date = getTimezonDate(7);
   let day = date.getDate();
   let month = monthNames[date.getMonth()];
 
@@ -43,6 +43,13 @@ function createImage() {
 
   const buffer = canvas.toBuffer("image/png");
   fs.writeFileSync("./image.png", buffer);
+}
+
+function getTimezonDate(offset) {
+  let date = new Date();
+  let utc = date.getTime() + date.getTimezoneOffset() * 60000;
+  let new_date = new Date(utc + 3600000 * offset);
+  return new_date;
 }
 
 function drawText(ctx, text, centerX, centerY, fontsize, fontface) {

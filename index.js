@@ -71,4 +71,18 @@ function changeTwitterPictureTask() {
   postImgToTwitterAPI(image64str);
 }
 
-changeTwitterPictureTask();
+const app = require("express")();
+const cors = require("cors");
+
+app.use(cors());
+
+app.get("/", (req, res) => {
+  changeTwitterPictureTask();
+  res.send("Hello");
+});
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log("server is running");
+});

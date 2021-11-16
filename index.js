@@ -13,10 +13,10 @@ const client = new Twit({
 });
 
 function createImage() {
-  const canvas = createCanvas(200, 200);
-  const ctx = canvas.getContext("2d");
   const width = 200;
   const height = 200;
+  const canvas = createCanvas(width, height);
+  const ctx = canvas.getContext("2d");
   ctx.fillStyle = "#fff";
   ctx.fillRect(0, 0, width, height);
 
@@ -34,7 +34,8 @@ function createImage() {
     "November",
     "December",
   ];
-  let date = getTimezonDate(7);
+  let jakartaTimeZoneOffset = 7;
+  let date = getTimezonDate(jakartaTimeZoneOffset);
   let day = date.getDate();
   let month = monthNames[date.getMonth()];
 
